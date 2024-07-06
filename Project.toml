@@ -1,0 +1,13 @@
+name = "FastGradientProjection"
+uuid = "db76afe2-0dac-4a3c-a8c7-f541811e5437"
+authors = ["Shuhei Yoshida <98638350+syoshida1983@users.noreply.github.com> and contributors"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.6.7"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
