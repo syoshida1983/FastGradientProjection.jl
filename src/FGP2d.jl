@@ -4,7 +4,7 @@ export FGP!
 """
     FGP(b, λ, N; lower_bound=-Inf, upper_bound=Inf, TV="iso")
 
-return denoised (volume) image `b` based on the minimization problem ``\\min_{\\mathbf{x}\\in{C}}\\|\\mathbf{x} - \\mathbf{b}\\|^{2}_{F} + 2\\lambda\\operatorname{TV}(\\mathbf{x}).``
+return denoised (volume) image `b` based on the minimization problem ``\\min\_{\\mathbf{x}\\in{C}}\\|\\mathbf{x} - \\mathbf{b}\\|\^{2}\_{F} + 2\\lambda\\mathrm{TV}(\\mathbf{x}).``
 
 # Arguments
 - `b`: input (volume) image.
