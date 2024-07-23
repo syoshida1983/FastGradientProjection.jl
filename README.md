@@ -6,22 +6,24 @@
 
 This package provides the functions for total variation (TV) denoising with gradient projection (GP) and fast gradient projection (FGP). GP/FGP denoises of (volume) image $\mathbf{b}$ based on the following minimization problem
 
-$$\min_{\mathbf{x}\in{C}}\|\mathbf{x} - \mathbf{b}\|^{2}_{F} + 2\lambda\operatorname{TV}(\mathbf{x}),$$
+$$\min_{\mathbf{x}\in{C}}\\|\mathbf{x} - \mathbf{b}\\|^{2}_{F} + 2\lambda\mathrm{TV}(\mathbf{x}),$$
 
-where $C$ is a convex closed set, $\|\cdot\|_{F}$ is the Frobenius norm, $\lambda$ is the regularization parameter, and $\operatorname{TV}$ is the total variation defined by
+where $C$ is a convex closed set, $\\|\cdot\\|_{F}$ is the Frobenius norm, $\lambda$ is the regularization parameter, and $\mathrm{TV}$ is the total variation defined by
 
 $$\begin{align}
-    \operatorname{TV}_{I}(\mathbf{x}) &=
+    \mathrm{TV}\_{I}(\mathbf{x}) &=
     \begin{cases}
-        \sum_{i}\sum_{j}\sqrt{\left(x_{i,j} - x_{i+1,j}\right)^{2} + \left(x_{i,j} - x_{i,j+1}\right)^{2}} & \text{(2D)}\\\sum_{i}\sum_{j}\sum_{k}\sqrt{\left(x_{i,j,k} - x_{i+1,j,k}\right)^{2} + \left(x_{i,j,k} - x_{i,j+1,k}\right)^{2} + \left(x_{i,j,k} - x_{i,j,k+1}\right)^{2}} & \text{(3D)}
+        \sum\_{i}\sum\_{j}\sqrt{\\left(x\_{i,j} - x\_{i+1,j}\\right)^{2} + \\left(x\_{i,j} - x\_{i,j+1}\\right)^{2}} & \text{(2D)}\\
+        \sum\_{i}\sum\_{j}\sum\_{k}\sqrt{\\left(x\_{i,j,k} - x\_{i+1,j,k}\\right)^{2} + \\left(x\_{i,j,k} - x\_{i,j+1,k}\\right)^{2} + \\left(x\_{i,j,k} - x\_{i,j,k+1}\\right)^{2}} & \text{(3D)}
     \end{cases},\\
-    \operatorname{TV}_{l_{1}}(\mathbf{x}) &=
+    \mathrm{TV}\_{l\_{1}}(\mathbf{x}) &=
     \begin{cases}
-        \sum_{i}\sum_{j}\left\{\left|x_{i,j} - x_{i+1,j}\right| + \left|x_{i,j} - x_{i,j+1}\right|\right\} & \text{(2D)}\\\sum_{i}\sum_{j}\sum_{k}\left\{\left|x_{i,j,k} - x_{i+1,j,k}\right| + \left|x_{i,j,k} - x_{i,j+1,k}\right| + \left|x_{i,j,k} - x_{i,j,k+1}\right|\right\} & \text{(3D)}
+        \sum\_{i}\sum\_{j}\\left\\{\\left|x\_{i,j} - x\_{i+1,j}\\right| + \\left|x\_{i,j} - x\_{i,j+1}\\right|\\right\\} & \text{(2D)}\\
+        \sum\_{i}\sum\_{j}\sum\_{k}\\left\\{\\left|x\_{i,j,k} - x\_{i+1,j,k}\\right| + \\left|x\_{i,j,k} - x\_{i,j+1,k}\\right| + \\left|x\_{i,j,k} - x\_{i,j,k+1}\\right|\\right\\} & \text{(3D)}
     \end{cases}.
 \end{align}$$
 
-(1) and (2) express isotropic and $l_{1}$-based anisotropic TV, respectively.
+$\mathrm{TV}\_{I}$ and $\mathrm{TV}\_{l\_{1}}$ express isotropic and $l_{1}$-based anisotropic TV, respectively.
 
 For more information on the algorithm, please refer to the following reference.
 
@@ -50,7 +52,7 @@ Import the package first.
 julia> using FastGradientProjection
 ```
 
-For example, to denoise (volume) image $\mathbf{b}$ with FGP, perform the following.
+For example, perform the following to denoise (volume) image $\mathbf{b}$ with FGP.
 
 ```julia
 julia> x = FGP(b, 0.1, 100, lower_bound=0.0, upper_bound=1.0)
@@ -63,8 +65,7 @@ The second and third arguments are the regularization parameter $\lambda$ and th
     &emsp;&emsp;
     <img src="https://github.com/syoshida1983/FastGradientProjection.jl/blob/images/denoised.jpg" width="250px">
     <br>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
     noised image
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
     denoised image
 </p>
