@@ -58,7 +58,7 @@ For example, perform the following to denoise (volume) image $\mathbf{b}$ with F
 julia> x = FGP(b, 0.1, 100, lower_bound=0.0, upper_bound=1.0)
 ```
 
-The second and third arguments are the regularization parameter $\lambda$ and the number of iterations. The values specified by the keyword arguments `lower_bound` and `upper_bound` are the upper and lower bounds of the convex closed set $C$. These default values are `lower_bound=-Inf` and `upper_bound=Inf`. If $\mathbf{b}$ is a complex array, projection to $C$ is not performed. The function FGP performs denoising based on isotropic TV by default; to perform denoising based on anisotropic TV, specify the keyword argument `TV="aniso"`. Refer to the [documentation]((https://syoshida1983.github.io/FastGradientProjection.jl/stable/)) for further information.
+The second and third arguments are the regularization parameter $\lambda$ and the number of iterations. The values specified by the keyword arguments `lower_bound` and `upper_bound` are the upper and lower bounds of the convex closed set $C$. These default values are `lower_bound=-Inf` and `upper_bound=Inf`. If $\mathbf{b}$ is a complex array, projection to $C$ is not performed. The function FGP performs denoising based on isotropic TV by default; to perform denoising based on anisotropic TV, specify the keyword argument `TV="aniso"`. Refer to the [documentation](https://syoshida1983.github.io/FastGradientProjection.jl/stable/) for further information.
 
 <p align="center">
     <img src="https://github.com/syoshida1983/FastGradientProjection.jl/blob/images/noised.jpg" width="250px">
